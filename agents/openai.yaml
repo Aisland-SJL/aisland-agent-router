@@ -1,0 +1,6 @@
+interface:
+  display_name: "Aisland Agent Router"
+  short_description: "主会话决策、按需子 Agent 分工、任务用量与框内文字复盘"
+  default_prompt: "用 $aisland-agent-router 按需分工完成当前任务，由主会话验收，并在结束时展示框内文字复盘。"
+policy:
+  allow_implicit_invocation: true

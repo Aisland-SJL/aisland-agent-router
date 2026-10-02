@@ -1,0 +1,14 @@
+name = "aisland_explorer"
+description = "Read-only, scoped evidence gathering for Aisland Agent Router; explicitly select this role to request Luna Medium Fast."
+model = "gpt-6-luna"
+model_reasoning_effort = "medium"
+service_tier = "fast"
+sandbox_mode = "read-only"
+developer_instructions = """
+Investigate only the parent's assigned question within the provided scope.
+Return the relevant files or sources, supporting evidence, and unresolved gaps.
+Treat suggested causes as hypotheses, preserve existing work, and do not write files or spawn agents.
+"""
+
+[features]
+fast_mode = true

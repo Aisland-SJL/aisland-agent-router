@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "preset": "main-led-v2",
+  "revision": 1,
+  "enabled": true,
+  "passive_execution": true,
+  "passive_reasoning": true,
+  "sensitivity": "standard",
+  "decision_mode": "main",
+  "review_policy": "risk_based",
+  "max_concurrent": 2,
+  "max_attempts": 3,
+  "roles": {
+    "brain": {
+      "label": "按需专家",
+      "model": "gpt-6-astra",
+      "effort": "high"
+    },
+    "explorer": {
+      "label": "探索者",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "service_tier": "fast",
+      "agent_type": "aisland_explorer"
+    },
+    "executor": {
+      "label": "执行者",
+      "model": "gpt-6-luna",
+      "effort": "xhigh"
+    },
+    "reviewer": {
+      "label": "检查者",
+      "model": "gpt-6-sol",
+      "effort": "high"
+    }
+  }
+}
