@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Use a lightweight path for short, low-risk handoffs: real delegation, direct acceptance and a brief labeled recap, without mandatory run files, telemetry or extra reports.
+- Keep full records for requested experiments/statistics/audits or work needing persistent tracking; distinguish executor time, acceptance snapshots and end-to-end delivery time.
+
 - Add a consistent 🧭 activation notice naming aisland-agent-router before delegation.
 - Label delivery recap frames and text record summaries with the Skill name and recap purpose; preserve structured JSON and existing routing configuration.
 

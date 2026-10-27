@@ -2,6 +2,8 @@
 
 `router.py` manages configuration, validates records and renders vertical text. `usage.py` optionally reads Codex telemetry for the exact physical sessions listed in one run. Both use the Python standard library. They do not launch agents or contact a network service.
 
+This reference describes the full-record path. The lightweight path in [SKILL.md](../SKILL.md#轻量优先) uses the conversation's actual dispatch, result and acceptance; it does not require a run JSON, session UUID lookup, these CLI commands or telemetry. Use full records when explicitly requested for experiments, statistics or audit, or needed for persistent handoff/recovery/tracking. Existing schema-1 records and validation remain unchanged.
+
 ## Configuration
 
 Read `.local/config.json` at the installed entry when present, otherwise `assets/default-config.json`. `config show` is read-only and displays four responsibilities, main-led decision mode, the expert fallback, requested Explorer speed, switches, revision and UTC read time. The agent asks whether the user wants changes.
@@ -19,7 +21,7 @@ Local model authorization is separate from preference values. Copy updates prese
 
 ## Run Record
 
-Use one JSON per actual run, maintained by the main conversation. `config_snapshot` preserves the startup configuration; each participant is a unique physical session. Exactly one participant includes `coordinator`; combine roles when the main conversation also executes or reviews. IDs and non-null agent IDs are unique. Prefer the confirmed Codex thread UUID for the coordinator ID so telemetry can be located. Do not replace identity with a role nickname.
+For each run on the full-record path, use one JSON maintained by the main conversation. `config_snapshot` preserves the startup configuration; each participant is a unique physical session. Exactly one participant includes `coordinator`; combine roles when the main conversation also executes or reviews. IDs and non-null agent IDs are unique. Prefer the confirmed Codex thread UUID for the coordinator ID so telemetry can be located. Do not replace identity with a role nickname.
 
 All schema-1 root and participant fields in the template remain required. Null is unknown, not zero. Metrics require a count, unit and evidence; different units cannot be added. Requested values, logged context and backend-confirmed actual values are distinct.
 

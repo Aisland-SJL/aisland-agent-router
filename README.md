@@ -18,6 +18,8 @@ Version: **0.1.0** · [GitHub](https://github.com/Aisland-SJL/aisland-agent-rout
 
 实际启动协作时会明确提示：`🧭 已触发 aisland-agent-router：<本次协作目的>`。交付复盘框的第一行统一为 `🧭 aisland-agent-router｜交付复盘`，并说明这是 Skill 协作过程的总结；标题保留在框内，单独阅读或复制时也能辨认。检查配置、维护 Skill 或讨论本身不冒充协作启动。
 
+短小、低风险、容易验收的一次交接走轻量路径：提示、派发、主会话验收、简短复盘。不默认创建运行 JSON、查询会话身份或统计、另写报告和索引；项目本身要求的状态更新仍遵守。对照实验、统计/审计或需要持久追踪的任务才使用完整记录流程。用户未要求协作的简单任务由主会话直接处理。
+
 ## 发布预设
 
 1. 决策者：主会话当前模型与强度；Astra / high 按需专家支援。
@@ -43,7 +45,7 @@ python -B scripts/router.py record summary --files <run-a.json> <run-b.json>
 
 默认值在 `assets/default-config.json`，偏好在运行入口 `.local/config.json`，更改增加 revision。`.local/` 不进入 Git，复制安装更新时保留。用量采集仅读取记录内已知会话的 JSONL 统计字段；核对 id 后按任务时间取差值，累计与快照不完整均标注。模型上下文记录不等于后台模型证明；不估算账单或节省。
 
-新记录的完成检查要求主会话及实际验收证据；需要 Reviewer 时还检查其工作与证据。文字复盘可放进一个写作块或代码框，完整字段与采集边界见 [记录说明](references/records.md)。
+完整记录的完成检查要求主会话及实际验收证据；需要 Reviewer 时还检查其工作与证据。轻量任务的验收直接留在对话中。文字复盘可放进一个写作块或代码框，完整记录字段与采集边界见 [记录说明](references/records.md)。
 
 ## Explorer Fast
 
