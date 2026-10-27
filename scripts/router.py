@@ -29,6 +29,7 @@ PARTICIPANT_STATUSES = {"working", "awaiting_review", "accepted", "blocked", "ca
 TRIGGER_MODES = {"explicit", "passive_execution", "passive_reasoning"}
 VERIFY_STATUSES = {"not_run", "partial", "failed", "passed"}
 TOKEN_FIELDS = ("total", "input", "output", "cached_input", "reasoning")
+RECAP_TITLE = "🧭 aisland-agent-router｜交付复盘"
 
 
 class RouterError(Exception):
@@ -461,6 +462,8 @@ def record_show(run: dict[str, Any], as_json: bool = False, source_path: Path | 
     participants = run["participants"]
     token_complete, total_tokens = token_completeness(participants)
     output = [
+        RECAP_TITLE,
+        "以下是所选记录中的 Skill 协作过程的总结。",
         "Aisland Agent Router 本轮记录",
         f"任务：{safe_text(run['task'])}",
         f"触发：{safe_text(run['trigger']['mode'])}；原因：{safe_text(run['trigger']['reason'])}",
@@ -578,7 +581,11 @@ def record_summary(paths: list[Path]) -> str:
         run = read_json(path)
         validate_run(run)
         runs.append((path, run))
-    lines = [f"Aisland Agent Router 显式记录汇总（{len(runs)} 条）"]
+    lines = [
+        RECAP_TITLE,
+        "以下是所选记录中的 Skill 协作过程的总结。",
+        f"Aisland Agent Router 显式记录汇总（{len(runs)} 条）",
+    ]
     fully_measured = 0
     for index, (path, run) in enumerate(runs, 1):
         participants = run["participants"]
@@ -624,6 +631,9 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    # Keep the recap marker readable in redirected Windows output as well.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     args = build_parser().parse_args(argv)
     try:
         if args.command == "config":

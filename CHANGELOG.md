@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add a consistent 🧭 activation notice naming aisland-agent-router before delegation.
+- Label delivery recap frames and text record summaries with the Skill name and recap purpose; preserve structured JSON and existing routing configuration.
+
 ## 0.1.0 - 2026-10-02
 
 First public release.

@@ -16,6 +16,8 @@ Version: **0.1.0** · [GitHub](https://github.com/Aisland-SJL/aisland-agent-rout
 
 也可显式使用 `$aisland-agent-router`。检查使用纵向四角色列表并询问修改，不派发。两类被动触发分别评估简单执行交接和关键推理需求；实际发现取决于宿主。
 
+实际启动协作时会明确提示：`🧭 已触发 aisland-agent-router：<本次协作目的>`。交付复盘框的第一行统一为 `🧭 aisland-agent-router｜交付复盘`，并说明这是 Skill 协作过程的总结；标题保留在框内，单独阅读或复制时也能辨认。检查配置、维护 Skill 或讨论本身不冒充协作启动。
+
 ## 发布预设
 
 1. 决策者：主会话当前模型与强度；Astra / high 按需专家支援。

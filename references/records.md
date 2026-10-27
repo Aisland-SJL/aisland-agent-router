@@ -53,7 +53,9 @@ Segments group by logged model, effort and speed. turn_context reports configura
 
 ## Recap
 
-`record show` produces numbered vertical text, with role, model/effort, contribution, status, available time/token fields and optional review findings. Common missing fields are stated once; full IDs, trace paths and configuration details stay in JSON. The agent presents this as one writing block or one plain code frame, without table alignment or separate dividers.
+Every recap begins inside its writing block or plain code frame with `🧭 aisland-agent-router｜交付复盘`, followed by `以下是本次 Skill 协作过程的总结。` Use `所选记录中的` instead of `本次` when reviewing saved records. This identifies the frame as the Skill's collaboration recap even when copied separately from the task deliverable; retain it for failed, cancelled, paused and partial runs as well, with the actual status in the body.
+
+`record show` produces this labeled recap and numbered vertical text, with role, model/effort, contribution, status, available time/token fields and optional review findings. `record summary` starts with the same title and explains that it summarizes the selected records. The CLI writes UTF-8 to stdout so the marker survives redirected Windows output; JSON remains structured data without display labels. Common missing fields are stated once; full IDs, trace paths and configuration details stay in JSON. Do not add table alignment or separate dividers.
 
 ```text
 python -B scripts/router.py record validate --file path/to/run.json
